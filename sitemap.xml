@@ -10,6 +10,13 @@
   </url>
   
   <url>
+    <loc>https://alkaid.io/post/two-sum-and-some-follow-up-problems/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://alkaid.io/</loc>
     <lastmod>2019-01-30T14:29:00+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -23,7 +30,28 @@
   </url>
   
   <url>
+    <loc>https://alkaid.io/post/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://alkaid.io/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alkaid.io/tags/algorithm/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://alkaid.io/categories/programming/</loc>
+    <lastmod>2019-03-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

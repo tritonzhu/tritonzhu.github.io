@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ALKAID-瑶光</title>
-    <link>https://alkaid.io/</link>
-    <description>Recent content on ALKAID-瑶光</description>
+    <title>programming on ALKAID-瑶光</title>
+    <link>https://alkaid.io/categories/programming/</link>
+    <description>Recent content in programming on ALKAID-瑶光</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Jan 2019 14:29:00 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 27 Mar 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://alkaid.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://alkaid.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About</title>
-      <link>https://alkaid.io/about/</link>
-      <pubDate>Wed, 30 Jan 2019 14:29:00 +0800</pubDate>
-      
-      <guid>https://alkaid.io/about/</guid>
-      <description>About me I&amp;rsquo;m Owen, a backend developer in China. My interests include distributed systems, big data and machine learning. My primary language is Java, but I also use Python, C++, and recently I&amp;rsquo;m learning Go. About the site Alkaid (η Ursae Majoris) is the leftmost star in the Big Dipper. The Chinese name of Alkaid is 瑶光 or 摇光, which means twinkling brilliance. In my opinion,</description>
-    </item>
     
     <item>
       <title>Two Sum and some Follow-up Problems</title>

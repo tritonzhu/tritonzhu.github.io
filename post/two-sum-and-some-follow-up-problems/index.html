@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Two Sum and some Follow-up Problems - ALKAID-瑶光</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Owen" /><meta name="description" content="Two sum is the first problem on leetcode, it&#39;s a simple one. However, by relaxing some restrictions, the problem could become more interesting. In the post I&#39;ll discuss some cases.
+The Simplest Case: return only one solution This one is just the problem 1 on leetcode, which is described as following:
+ Given an array of integers, return indices of the two numbers such that they add up to a specific target." /><meta name="keywords" content="owen, programming, coding" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://alkaid.io/post/two-sum-and-some-follow-up-problems/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.4647f8a3.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Two Sum and some Follow-up Problems" />
+<meta property="og:description" content="Two sum is the first problem on leetcode, it&#39;s a simple one. However, by relaxing some restrictions, the problem could become more interesting. In the post I&#39;ll discuss some cases.
+The Simplest Case: return only one solution This one is just the problem 1 on leetcode, which is described as following:
+ Given an array of integers, return indices of the two numbers such that they add up to a specific target." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://alkaid.io/post/two-sum-and-some-follow-up-problems/" />
+<meta property="article:published_time" content="2019-03-27T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-03-27T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Two Sum and some Follow-up Problems">
+<meta itemprop="description" content="Two sum is the first problem on leetcode, it&#39;s a simple one. However, by relaxing some restrictions, the problem could become more interesting. In the post I&#39;ll discuss some cases.
+The Simplest Case: return only one solution This one is just the problem 1 on leetcode, which is described as following:
+ Given an array of integers, return indices of the two numbers such that they add up to a specific target.">
+
+
+<meta itemprop="datePublished" content="2019-03-27T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-03-27T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1756">
+
+
+
+<meta itemprop="keywords" content="algorithm," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Two Sum and some Follow-up Problems"/>
+<meta name="twitter:description" content="Two sum is the first problem on leetcode, it&#39;s a simple one. However, by relaxing some restrictions, the problem could become more interesting. In the post I&#39;ll discuss some cases.
+The Simplest Case: return only one solution This one is just the problem 1 on leetcode, which is described as following:
+ Given an array of integers, return indices of the two numbers such that they add up to a specific target."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">瑶光</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">瑶光</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Two Sum and some Follow-up Problems</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-03-27 </span>
+        <div class="post-category">
+            <a href="/categories/programming/"> programming </a>
+            </div>
+          <span class="more-meta"> 1756 words </span>
+          <span class="more-meta"> 9 mins read </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    
+  </div>
+</div>
+    <div class="post-content">
+      <p>Two sum is the <a href="https://leetcode.com/problems/two-sum/">first problem on leetcode</a>, it's a simple one. However, by relaxing some restrictions, the problem could become more interesting.  In the post I'll discuss some cases.</p>
+
+<h3 id="the-simplest-case-return-only-one-solution">The Simplest Case: return only one solution</h3>
+
+<p>This one is just the problem 1 on leetcode, which is described as following:</p>
+
+<blockquote>
+<p>Given an array of integers, return <strong>indices</strong> of the two numbers such that they add up to a specific target.</p>
+
+<p>You may assume that each input would have <strong>exactly</strong> one solution, and you may not use the <em>same</em> element twice.</p>
+
+<p><strong>Example:</strong></p>
+
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,
+  return [0, 1].</p>
+</blockquote>
+
+<p>The typical solution is to use a map to store the elements in the array and find whether <code>target - n</code>  is in the map for each <code>n</code> in the array.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">twoSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// check the input at first
+</span><span class="c1"></span>    <span class="k">if</span><span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="n">2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+  
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;</span> <span class="n">Map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">target</span><span class="o">))</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">i</span><span class="o">,</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">target</span><span class="o">)};</span>
+        <span class="o">}</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">target</span><span class="o">,</span> <span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+  
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Time complexity</strong>: O(n), as every element in the array might be checked.</p>
+
+<p><strong>Space complexity</strong>: O(n), as every element in the array might be stored in the map.</p>
+
+<p>Though the problem assumes that there's exact one solution, the above code could also deal with the situation that there's no solution by just returning <code>null</code>.</p>
+
+<h3 id="sorted-case-the-array-is-sorted">Sorted Case: the array is sorted</h3>
+
+<p>It's the <a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/">problem 167</a> on leetcode, it's just the same as problem 1, except that the array is is already <strong>sorted in ascending order</strong>.</p>
+
+<p>Two pointers would solve the problem perfectly, we keep update <code>left</code> and <code>right</code> pointer till <code>nums[left] + nums[right]</code> equals <code>target</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span><span class="o">[]</span> <span class="nf">twoSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// check the input at first
+</span><span class="c1"></span>    <span class="k">if</span><span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="n">2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="o">}</span>
+  
+    <span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="n">0</span><span class="o">,</span> <span class="n">right</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">1</span><span class="o">;</span>
+    <span class="k">while</span><span class="o">(</span><span class="n">left</span> <span class="o">&lt;</span> <span class="n">right</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">left</span><span class="o">]</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">right</span><span class="o">];</span>  
+        <span class="k">if</span><span class="o">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">};</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">sum</span> <span class="o">&gt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+            <span class="o">--</span><span class="n">right</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="o">{</span>
+            <span class="o">++</span><span class="n">left</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Time complexity</strong>: O(n), as every element in the array might be checked.</p>
+
+<p><strong>Space complexity</strong>: O(1), only two extra variables are used.</p>
+
+<p>The code could also deal with the situation that there's no solution.</p>
+
+<h3 id="a-tiny-change-return-all-solutions">A tiny change: return all solutions</h3>
+
+<p>The problem is just the same as problem 1, except that there might be zero or more solutions. Since for each solution pair <code>&lt;i, j&gt;</code>, <code>&lt;j, i&gt;</code> is also a valid solution, let <code>i &lt; j</code> to reduce the output size. The problem is described as following:</p>
+
+<blockquote>
+<p>Given an array of integers <code>nums</code>, return <strong>all indices</strong> of the two numbers <code>nums[i]</code>, <code>nums[j]</code>, <code>i &lt; j</code> such that <code>nums[i] + nums[j]</code>  equals a specific target.</p>
+
+<p><strong>Example1:</strong></p>
+
+<p>Given nums = [2, 3, 6, 7, 11, 15], target = 9,</p>
+
+<p>Because nums[0] + nums[3] = 2 + 7 = 9, nums[1] + nums[2] = 3 + 6 = 9
+   return</p>
+
+<p>[</p>
+
+<p>​    [0, 3],</p>
+
+<p>​    [1, 2]</p>
+
+<p>]</p>
+
+<p><strong>Example2:</strong></p>
+
+<p>Given nums = [1, 2], target = 5, return []</p>
+</blockquote>
+
+<p>For this problem we have to consider another issue: <strong>duplicates</strong>, as duplicate numbers have different indexes and hence generate different solutions.  So we use <code>Map&lt;Integer, List&lt;Integer&gt;&gt;</code> to store the number and indexes, and then iterate the map to check for solutions.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="nf">twoSum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="c1">// check the input at first
+</span><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">&lt;</span> <span class="n">2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">list</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;&gt;();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">l</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">getOrDefault</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;());</span>
+        <span class="n">l</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+        <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">l</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">removed</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+    <span class="c1">// use var keyword to shorten the long class name
+</span><span class="c1"></span>    <span class="k">for</span> <span class="o">(</span><span class="n">var</span> <span class="n">entry</span> <span class="o">:</span> <span class="n">map</span><span class="o">.</span><span class="na">entrySet</span><span class="o">())</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">key</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="na">getKey</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">removed</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="n">key</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">key</span><span class="o">))</span> <span class="o">{</span>
+            <span class="n">var</span> <span class="n">l1</span> <span class="o">=</span> <span class="n">entry</span><span class="o">.</span><span class="na">getValue</span><span class="o">();</span>
+            <span class="n">var</span> <span class="n">l2</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">key</span><span class="o">);</span>
+
+            <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">l1</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">0</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">l2</span><span class="o">.</span><span class="na">size</span><span class="o">();</span> <span class="o">++</span><span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">add</span><span class="o">(</span><span class="n">list</span><span class="o">,</span> <span class="n">l1</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">i</span><span class="o">),</span> <span class="n">l2</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">j</span><span class="o">));</span>
+                <span class="o">}</span>
+            <span class="o">}</span>
+            
+            <span class="c1">// modifing map during iterating is not allowed, just record the removed keys in another set 
+</span><span class="c1"></span>            <span class="n">removed</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">key</span><span class="o">);</span>
+            <span class="n">removed</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">target</span> <span class="o">-</span> <span class="n">key</span><span class="o">);</span>
+         <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="n">list</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">add</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">[]&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="kt">int</span> <span class="n">i</span><span class="o">,</span> <span class="kt">int</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">j</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="kt">int</span><span class="o">[]{</span><span class="n">i</span><span class="o">,</span> <span class="n">j</span><span class="o">});</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Time complexity</strong>: worst case O(n<sup>2</sup>), consider the case nums = [1, 1, ..., 1], target = 2, there would be n * (n - 1) / 2 loops.</p>
+
+<p><strong>Space complexity</strong>: O(n), all elements would be added to map.</p>
+
+<h3 id="fewer-limitations-every-number-could-be-used-multiple-times">Fewer Limitations: every number could be used multiple times</h3>
+
+<p>I met this problem in an interview and I failed as I treated it as a recursion problem but failed to find the recursion relation. After that I thought it carefully, and it's the initial reason why I wrote this post.</p>
+
+<p>Firstly let's describe the problem:</p>
+
+<blockquote>
+<p>Given an array of integers, pick at lease one number from the array such such the sum of all the numbers  equals to a target. Each number could be used <strong>zero or more</strong> times. Return all solutions.</p>
+
+<p><strong>Example</strong>:</p>
+
+<p>Given nums = [1, 2, 5], target = 6</p>
+
+<p>Returns:</p>
+
+<p>[</p>
+
+<p>​    [1, 1, 1, 1, 1, 1],</p>
+
+<p>​    [1, 1, 1, 1, 2],</p>
+
+<p>​    [1, 1, 2, 2],</p>
+
+<p>​    [1, 5],</p>
+
+<p>​    [2, 2, 2]</p>
+
+<p>]</p>
+</blockquote>
+
+<p>However, there's a <strong>trap</strong> here: if the sum of two numbers equals 0, there would be infinite answers since we can generate a new answer by adding a pair of numbers with sum 0 to the original answer. For example, given the array <code>[-1, 1, 3]</code>, target = 3, <code>[3]</code>, <code>[-1, 1, 3]</code>, <code>[-1, -1, 1, 1, 3]</code>... would all be valid answers.</p>
+
+<p>So we need to add some restrictions here, any one of the following three is fine:</p>
+
+<ul>
+<li>only allow positive integers in the array</li>
+<li>limit the output list size</li>
+<li>limit the number count in the answer</li>
+</ul>
+
+<p>For simplicity, we assume that there're only positive integers.</p>
+
+<p>Another noticeable point is that we output the original integers rather than their indexes as it's easy to check the answer, we should also pay attention to duplicate numbers to avoid duplicate answers. If we use indexes as output, then we don't need to filter the duplicates.</p>
+
+<p>Now let's focus on the solution. It's a <strong>backtracking</strong> problem since we need to search each state after adding an integer to the answer.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="nf">anySum</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+	<span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="c1">// check the input at first
+</span><span class="c1"></span>    <span class="k">if</span> <span class="o">(</span><span class="n">nums</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="n">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">list</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="c1">// filter duplicates with set
+</span><span class="c1"></span>    <span class="n">Set</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">set</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="o">&lt;&gt;();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">:</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">set</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="kt">int</span><span class="o">[]</span> <span class="n">unique</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">stream</span><span class="o">().</span><span class="na">mapToInt</span><span class="o">(</span><span class="n">i</span> <span class="o">-&gt;</span> <span class="n">i</span><span class="o">).</span><span class="na">toArray</span><span class="o">();</span>
+
+    <span class="n">search</span><span class="o">(</span><span class="n">unique</span><span class="o">,</span> <span class="n">0</span><span class="o">,</span>  <span class="n">0</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">list</span><span class="o">,</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;());</span>
+    <span class="k">return</span> <span class="n">list</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">search</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="o">,</span> <span class="kt">int</span> <span class="n">index</span><span class="o">,</span> <span class="kt">int</span> <span class="n">target</span><span class="o">,</span> 
+                   <span class="n">List</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;&gt;</span> <span class="n">list</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">subList</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">index</span> <span class="o">&gt;=</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">||</span> <span class="n">sum</span> <span class="o">&gt;</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">sum</span> <span class="o">==</span> <span class="n">target</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// add copy of current list to the final answer
+</span><span class="c1"></span>        <span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;(</span><span class="n">subList</span><span class="o">));</span>
+        <span class="k">return</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">index</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="o">++</span><span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">subList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">]);</span>
+        <span class="c1">// still search from index i as nums[i] could be used multi times
+</span><span class="c1"></span>        <span class="n">search</span><span class="o">(</span><span class="n">nums</span><span class="o">,</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">i</span><span class="o">,</span> <span class="n">target</span><span class="o">,</span> <span class="n">list</span><span class="o">,</span> <span class="n">subList</span><span class="o">);</span> 
+        <span class="c1">// back to last path, the sign of backtracking
+</span><span class="c1"></span>        <span class="n">subList</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">subList</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">-</span> <span class="n">1</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p><strong>Time complexity</strong>:</p>
+
+<p>It's a little complicated, the filter process contributes O(n) to the time, then let's observe the search space:</p>
+
+<p><figure><img src="/img/2019-03/search-space.png" alt="search space"></figure></p>
+
+<p>The first number is the integer to be added to the solution, the second number is the sum of all the selected integers.</p>
+
+<p>It's a N-ary tree with max N levels (if the array contains 1). Now let's do some math works:</p>
+
+<blockquote>
+<p>Assuming that there're <span  class="math">\(n\)</span> integers in the filtered array, let <span  class="math">\(N_i\)</span> be the <span  class="math">\(i^{th}\)</span> integer, <span  class="math">\(T\)</span>  be the target,</p>
+
+<p>for simplicity, we also assume that the filtered array is sorted in ascending order (easily satisfied by sorting, which takes only <span  class="math">\(O(nlogn)\)</span> time), then the search tree's max depth <span  class="math">\(D = \lceil T / N_0\rceil\)</span></p>
+
+<p>use <span  class="math">\(C_i\)</span> as the node count for level <span  class="math">\(i\)</span>, it's obvious that <span  class="math">\(C_1 = n\)</span>,</p>
+
+<p>consider the children count <span  class="math">\(C_1j\)</span> of each node <span  class="math">\(j\)</span> in level 1, we have</p>
+
+<p><span  class="math">\[
+\begin {equation} 
+C_1j = 
+\begin{cases}
+n - j & & {T - N_j >= 0}\\
+0 & & {T - N_j} < 0
+\end{cases}
+\end{equation}
+\]</span></p>
+
+<p>then <span  class="math">\( C_2 = \sum_{j=0}^{n-1}C_{1j} = n * (n - 1) / 2 \)</span> if <span  class="math">\(T\)</span> is large enough. Though some paths have been skipped, it's still <span  class="math">\(O(n^2)\)</span>.</p>
+
+<p>For the level <span  class="math">\( l <= \lceil T/N_{n-1} \rceil, C_l = O(n^l) \)</span>,  then for level <span  class="math">\( l > \lceil T / N_{n-1} \rceil \)</span> , <span  class="math">\( C_l \)</span> would go on being in <span  class="math">\(O(n^l)\)</span> and then decrease after <span  class="math">\(l\)</span> exceeds some threshold <span  class="math">\(t\)</span>. The accurate value of <span  class="math">\(t\)</span> depends on the distribution of <span  class="math">\(N_i\)</span>, but for average cases we can assume that <span  class="math">\( t = avg(N_i) = \sum_{i=0}^{n-1}N_i / n \)</span> .</p>
+</blockquote>
+
+<p>Since the largest power dominates the time complexity, the time complexity of this algorithm is <span  class="math">\(O(n^{avg(N_i)})\)</span>.</p>
+
+<p><strong>Space complexity:</strong></p>
+
+<p><span  class="math">\(O(D)\)</span>, where <span  class="math">\(D\)</span> is the max search tree depth.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>To solve an algorithm problem, firstly clarify all the conditions and make no assumptions unless it's been given clearly. Then use proper data structures and strategies to solve the problem. Some factors should be considers as they may have an influence on the correctness and time complexity. For example, <strong>order</strong> and <strong>duplicates</strong> are two important factors for array related problems.</p>
+
+<p>For many cases, use space as a cost to reduce the time complexity is a reasonable choice. If there's a brute force solution with <span  class="math">\(O(n^2)\)</span>, recusion, divide and conquer and sorting are typical ways to reduce the time complexity. And if all situations should be checked, backtracking is the first choice.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">Owen</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">2019-03-27</span>
+  </p>
+  
+  
+</div><footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/algorithm/">algorithm</a>
+          </div>
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/tritonzhu" class="iconfont icon-github" title="github"></a>
+  <a href="https://alkaid.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Owen</span>
+    <span><a class="theme-link" href='https://dryicons.com/free-icons/big-dipper'> Icon by Dryicons </a></span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
