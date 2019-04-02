@@ -554,9 +554,9 @@ n - j & & {T - N_j >= 0}\\
 \end{equation}
 \]</span></p>
 
-<p>then <span  class="math">\( C_2 = \sum_{j=0}^{n-1}C_{1j} = n * (n - 1) / 2 \)</span> if <span  class="math">\(T\)</span> is large enough. Though some paths have been skipped, it's still <span  class="math">\(O(n^2)\)</span>.</p>
+<p>then <span  class="math">\( C_2 = \sum_{j=0}^{n-1}C_{1j} = n * (n + 1) / 2 \)</span> if <span  class="math">\(T\)</span> is large enough. Though some paths have been skipped, it's still <span  class="math">\(O(n^2)\)</span>.</p>
 
-<p>For the level <span  class="math">\( l <= \lceil T/N_{n-1} \rceil, C_l = O(n^l) \)</span>,  then for level <span  class="math">\( l > \lceil T / N_{n-1} \rceil \)</span> , <span  class="math">\( C_l \)</span> would go on being in <span  class="math">\(O(n^l)\)</span> and then decrease after <span  class="math">\(l\)</span> exceeds some threshold <span  class="math">\(t\)</span>. The accurate value of <span  class="math">\(t\)</span> depends on the distribution of <span  class="math">\(N_i\)</span>, but for average cases we can assume that <span  class="math">\( t = avg(N_i) = \sum_{i=0}^{n-1}N_i / n \)</span> .</p>
+<p>For the level <span  class="math">\( l <= \lceil T/N_{n-1} \rceil, C_l = O(n^l) ​\)</span>,  then for level <span  class="math">\( l > \lceil T / N_{n-1} \rceil ​\)</span> , <span  class="math">\( C_l ​\)</span> would go on being in <span  class="math">\(O(n^l)​\)</span> and then decrease after <span  class="math">\(l​\)</span> exceeds some threshold <span  class="math">\(t​\)</span>. The accurate value of <span  class="math">\(t​\)</span> depends on the distribution of <span  class="math">\(N_i​\)</span>, but for average cases we can assume that <span  class="math">\( t = avg(N_i) = \sum_{i=0}^{n-1}N_i / n ​\)</span> .</p>
 </blockquote>
 
 <p>Since the largest power dominates the time complexity, the time complexity of this algorithm is <span  class="math">\(O(n^{avg(N_i)})\)</span>.</p>
