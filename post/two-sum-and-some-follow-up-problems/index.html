@@ -57,7 +57,7 @@ The Simplest Case: return only one solution This one is just the problem 1 on le
 
 <meta itemprop="datePublished" content="2019-03-27T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-03-27T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1756">
+<meta itemprop="wordCount" content="1763">
 
 
 
@@ -140,7 +140,7 @@ The Simplest Case: return only one solution This one is just the problem 1 on le
         <div class="post-category">
             <a href="/categories/programming/"> programming </a>
             </div>
-          <span class="more-meta"> 1756 words </span>
+          <span class="more-meta"> 1763 words </span>
           <span class="more-meta"> 9 mins read </span>
         
       </div>
@@ -438,7 +438,7 @@ The Simplest Case: return only one solution This one is just the problem 1 on le
 <li>limit the number count in the answer</li>
 </ul>
 
-<p>For simplicity, we assume that there're only positive integers.</p>
+<p>For simplicity, we assume that there're only positive integers. With this condition, it becomes <a href="https://leetcode.com/problems/combination-sum/">Combination Sum</a>.</p>
 
 <p>Another noticeable point is that we output the original integers rather than their indexes as it's easy to check the answer, we should also pay attention to duplicate numbers to avoid duplicate answers. If we use indexes as output, then we don't need to filter the duplicates.</p>
 
@@ -554,9 +554,9 @@ n - j & & {T - N_j >= 0}\\
 \end{equation}
 \]</span></p>
 
-<p>then <span  class="math">\( C_2 = \sum_{j=0}^{n-1}C_{1j} = n * (n - 1) / 2 \)</span> if <span  class="math">\(T\)</span> is large enough. Though some paths have been skipped, it's still <span  class="math">\(O(n^2)\)</span>.</p>
+<p>then <span  class="math">\( C_2 = \sum_{j=0}^{n-1}C_{1j} = n * (n + 1) / 2 \)</span> if <span  class="math">\(T\)</span> is large enough. Though some paths have been skipped, it's still <span  class="math">\(O(n^2)\)</span>.</p>
 
-<p>For the level <span  class="math">\( l <= \lceil T/N_{n-1} \rceil, C_l = O(n^l) \)</span>,  then for level <span  class="math">\( l > \lceil T / N_{n-1} \rceil \)</span> , <span  class="math">\( C_l \)</span> would go on being in <span  class="math">\(O(n^l)\)</span> and then decrease after <span  class="math">\(l\)</span> exceeds some threshold <span  class="math">\(t\)</span>. The accurate value of <span  class="math">\(t\)</span> depends on the distribution of <span  class="math">\(N_i\)</span>, but for average cases we can assume that <span  class="math">\( t = avg(N_i) = \sum_{i=0}^{n-1}N_i / n \)</span> .</p>
+<p>For the level <span  class="math">\( l <= \lceil T/N_{n-1} \rceil, C_l = O(n^l) ​\)</span>,  then for level <span  class="math">\( l > \lceil T / N_{n-1} \rceil ​\)</span> , <span  class="math">\( C_l ​\)</span> would go on being in <span  class="math">\(O(n^l)​\)</span> and then decrease after <span  class="math">\(l​\)</span> exceeds some threshold <span  class="math">\(t​\)</span>. The accurate value of <span  class="math">\(t​\)</span> depends on the distribution of <span  class="math">\(N_i​\)</span>, but for average cases we can assume that <span  class="math">\( t = avg(N_i) = \sum_{i=0}^{n-1}N_i / n ​\)</span> .</p>
 </blockquote>
 
 <p>Since the largest power dominates the time complexity, the time complexity of this algorithm is <span  class="math">\(O(n^{avg(N_i)})\)</span>.</p>
@@ -595,7 +595,20 @@ n - j & & {T - N_j >= 0}\\
     </footer>
   </article>
         </div>
-        
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'alkaid-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
       </div>
     </main>
@@ -648,6 +661,17 @@ n - j & & {T - N_j >= 0}\\
   </script>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-390067-7', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
